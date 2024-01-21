@@ -2,22 +2,55 @@
 {% block title %} Recipes searcher {% endblock %}
 {% block body %}
 
-<center>
-    <div class="full_form">
-        <h2 style="padding-top: 3%;">
-            It's time for cooking! What do you have in the fridge? <br>
-            <small class="text-muted"> Let's warm up with a joke: {{ joke }} </small>
-        </h2>
+
+<div class="row">
+    <div id="full_form" class="col-6 col-md-6">
+        <p style="padding-top: 3%">
+            What's in your <br>fridge?<br>
+        </p>
         <br><br>
+        <p class="desc">
+            Enter a list of ingredients and let us do the rest<br>
+        </p>
         <form class="form_recipes" action="/recipes">
-            <div class="input-group mb-3" style="max-width: 50%;">
-                <input type="text" class="form-control" placeholder="Apple, flour, sugar" aria-label="Ingridients" aria-describedby="button-addon2" name="ingridients">
-                <div class="input-group-append">
-                    <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>
-                </div>          
+            <div class="input_holder mb-3" style="max-width: 50%;">
+                <input type="text" class="form-control" placeholder="Enter ingredients you have at home" aria-label="Ingridients" aria-describedby="button-addon2" name="ingridients">       
             </div>
+            <div class="input_holder mb-3" style="max-width: 50%;">
+                <input type="text" class="form-control" placeholder="Enter ingredients you have at home" aria-label="Ingridients" aria-describedby="button-addon2" name="ingridients">     
+            </div>
+            <div class="input_holder mb-3" style="max-width: 50%;">
+                <input type="text" class="form-control" placeholder="Enter ingredients you have at home" aria-label="Ingridients" aria-describedby="button-addon2" name="ingridients">    
+            </div>
+            <div class="input_button">
+                <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>
+            </div>   
         </form>
     </div>
-</center>
+    <div class="col-6 col-md-6">
+        <img src="/static/fridge_image.png" id="fridge">
+    </div>
+</div>
+
+<div class="row">
+        <div id="cell1" class="col-6 col-md-4 text-center border border-dark p-3">
+            <img src="">
+        </div>
+        <div id="cell2" class="col-6 col-md-4 text-center border border-dark p-3">
+            <img src="">
+        </div>
+        <div id="cell3" class="col-6 col-md-4 text-center border border-dark p-3">
+            <img src="">
+        </div>
+        <div id="cell4" class="col-6 col-md-4 text-center border border-dark p-3">
+            <img src="">
+        </div>
+        <div id="cell5" class="col-6 col-md-4 text-center border border-dark p-3">
+            <img src="">
+        </div>
+        <div id="cell6" class="col-6 col-md-4 text-center border border-dark p-3">
+            <img src="">
+        </div>
+</div>
 
 {% endblock %}
