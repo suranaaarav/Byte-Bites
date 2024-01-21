@@ -12,25 +12,21 @@
 </nav>
 
 <h2 style="text-align: center; margin-top: 1em;"> <a href="/" style="text-decoration: none; color:rgb(0, 0, 0);"> Recipes for you: </a></h2>
-<div class="row">
-        <div style="display: inline;">
-            <ul>
-                {% for recipe in recipes %}
-                <div id="cell" class="col-4 col-md-4 border border-dark p-3" style="margin: 0.5em;">
-                    <li class="media">
-                            <h5><a href="/recipe?id={{ recipe['id'] }}">{{ recipe['title'] }}</a></h5>
-                            {% if 'likes' not in recipe %}
-                            Number of Required Ingredients - {{recipe['missedIngredientCount']}}
-                            {% else %}
-                            Number of Required Ingredients - {{recipe['missedIngredientCount']}}
-                            {% endif %}
-                            <img src="{{recipe['image']}}" alt="..." style="width: 7rem; height: 7rem;">
-                    </li>
+<div class="container">
+    <div class="row">
+        {% for recipe in recipes %}
+        <div class="col-6 col-md-4 col-lg-4 mb-3">
+            <div class="card border-dark">
+                <img src="{{ recipe['image'] }}" class="card-img-top" alt="Recipe Image" style="height: 150px; width: 150px; margin: auto;">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="/recipe?id={{ recipe['id'] }}">{{ recipe['title'] }}</a></h5>
                 </div>
-                {% endfor %}
-            </ul>
+            </div>
         </div>
+        {% endfor %}
+    </div>
 </div>
+
 
 
 {% endblock %}
