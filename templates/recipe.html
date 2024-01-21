@@ -1,20 +1,66 @@
 {% extends 'index.html' %}
-{% block title %} {{recipe['title']}} {% endblock %}
+
+{% block title %}{{ recipe['title'] }}{% endblock %}
+
 {% block body %}
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fbcb75;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
 
-<center>
-  <h2 style="display: block; margin-top: 1.3em;">{{recipe['title']}}</h2><br>
-<img src="{{recipe['image']}}" alt="..." width="30%" height="30%" style="display: block; border: 5px black;">
-      
-<h3 style="margin-top: 0.7em; display: block;">Ingredients:</h3>
-  {% for i in recipe['extendedIngredients'] %}
-    {{ i['name'].capitalize() }} -
-    {{ ("%.2f"|format(i['amount'])).rstrip('0').rstrip('.') }}
-    {{  i['unit']  }} <br>
-  {% endfor %}      
-  <br>
-  {{ recipe['instructions'] }} <br>
+    h2 {
+      color: #000000;
+      margin: 0.3em;
+    }
 
-</center>
+    img {
+      border: 5px solid #000000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      color: #000000;
+    }
+
+    div {
+      margin: 1em;
+      padding: 1em;
+      background-color: #fbcb75;
+      /* border: #000000;
+      border:1px solid black;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    }
+
+    div.instructions {
+      margin: 1em;
+      padding: 1em;
+      text-align: justify;
+    }
+  </style>
+
+  <div style="text-align: center; margin-top: 2em;">
+    <h2>{{ recipe['title'] }}</h2>
+  <div style="text-align: center; margin-top: 2em;">
+    <img src="{{ recipe['image'] }}" alt="{{ recipe['title'] }}" width="30%" height="30%">
+  </div>
+
+  <div style="margin-top: 1.5em; text-align: center;">
+    <h3>Ingredients:</h3>
+    {% for i in recipe['extendedIngredients'] %}
+      {{ i['name'].capitalize() }} -
+      {{ ("%.2f"|format(i['amount'])).rstrip('0').rstrip('.') }}
+      {{ i['unit'] }} <br>
+    {% endfor %}      
+  </div>
+
+  <div class="instructions">
+    <b><u>Instructions:</u></b><br>
+    {{ recipe['instructions'] }}
+  </div>
 
 {% endblock %}
