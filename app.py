@@ -24,17 +24,27 @@ def search_page():
 def get_recipes():
   if (str(request.args['ingridients']).strip() != ""):
       # If there is a list of ingridients -> list
-      querystring = {"number":"5","ranking":"1","ignorePantry":"false","ingredients":request.args['ingridients']}
+      querystring = {"number":"10","ranking":"1","ignorePantry":"false","ingredients":request.args['ingridients']}
+      querystring1 = {"number":"1","ranking":"1","ignorePantry":"false","ingredients":request.args['ingridients']}
+
       response = requests.request("GET", url + find, headers=headers, params=querystring).json()
+      i = 0
+      while i < len(response):
+        recipe_info_endpoint = "recipes/{0}/information".format(response[i]['id'])
+        veg = requests.request("GET", url + recipe_info_endpoint, headers=headers).json()
+
+        if veg['vegetarian'] == False:
+          response.pop(i)
+        i+=1
       if len(response) == 0:
          return render_template('error.html')
       return render_template('recipes.html', recipes=response)
   else:
-      # Random recipes
-      querystring = {"number":"5"}
-      response = requests.request("GET", url + randomFind, headers=headers, params=querystring).json()
-      print(response)
-      return render_template('recipes.html', recipes=response['recipes'])
+    # Random recipes
+    querystring = {"number":"5"}
+    response = requests.request("GET", url + randomFind, headers=headers, params=querystring).json()
+    print(response)
+    return render_template('recipes.html', recipes=response['recipes'])
   
 @app.route('/recipe')
 def get_recipe():

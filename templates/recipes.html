@@ -7,9 +7,12 @@
         <div>
             <ul>
                 {% for recipe in recipes %}
+                
                 <div id="cell" class="col-4 col-md-4 border border-dark p-3">
                     <li class="media">
+                    
                         <img src="{{recipe['image']}}" alt="..." style="width: 7rem; height: 7rem;">
+                        <br>
                             <h5><a href="/recipe?id={{ recipe['id'] }}">{{ recipe['title'] }}</a></h5>
                             {% if 'likes' not in recipe %}
                             Number of Required Ingredients - {{recipe['missedIngredientCount']}}
