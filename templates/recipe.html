@@ -1,24 +1,20 @@
-{% extends 'index.html' %}
+recipe.html - {% extends 'index.html' %}
 {% block title %} {{recipe['title']}} {% endblock %}
 {% block body %}
 
-<div style="max-width: 70%; margin: auto; padding-top:3%">
-  <div class="media">
-      <img src="{{recipe['image']}}" class="mr-3" alt="..." width="20%" height="20%">
+<center>
+  <h2 style="display: block; margin-top: 1.3em;">{{recipe['title']}}</h2><br>
+<img src="{{recipe['image']}}" alt="..." width="30%" height="30%" style="display: block; border: 5px black;">
       
-      
-      <div class="media-body">
-        <h5 class="mt-0">{{recipe['title']}}</h5>
-        {% for i in recipe['extendedIngredients'] %}
-            {{ i['name'].capitalize() }} -
-            {{ ("%.2f"|format(i['amount'])).rstrip('0').rstrip('.') }}
-            {{  i['unit']  }} <br>
-        {% endfor %}      
-      </div>
-  </div>  
-
+<h3 style="margin-top: 0.7em; display: block;">Ingredients:</h3>
+  {% for i in recipe['extendedIngredients'] %}
+    {{ i['name'].capitalize() }} -
+    {{ ("%.2f"|format(i['amount'])).rstrip('0').rstrip('.') }}
+    {{  i['unit']  }} <br>
+  {% endfor %}      
+  <br>
   {{ recipe['instructions'] }} <br>
 
+</center>
 
-</div>
 {% endblock %}
