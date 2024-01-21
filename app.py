@@ -26,6 +26,8 @@ def get_recipes():
       # If there is a list of ingridients -> list
       querystring = {"number":"5","ranking":"1","ignorePantry":"false","ingredients":request.args['ingridients']}
       response = requests.request("GET", url + find, headers=headers, params=querystring).json()
+      if len(response) == 0:
+         return render_template('error.html')
       return render_template('recipes.html', recipes=response)
   else:
       # Random recipes

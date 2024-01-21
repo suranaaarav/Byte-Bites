@@ -10,14 +10,11 @@
               <div class="media-body">
                   <h5 class="mt-0 mb-1"><a href="/recipe?id={{ recipe['id'] }}">{{ recipe['title'] }}</a></h5>
                   {% if 'likes' not in recipe%}
-                      How many minutes for preparation? {{recipe['preparationMinutes']}} <br>
-                      How many minutes for cooking? {{recipe['cookingMinutes']}}  <br>
-                      How many likes has this recipe? {{recipe['aggregateLikes']}}  <br>
+                  Number of Required Ingredients - {{recipe['missedIngredientCount']}}  
+                  <br>
                   {% else %}
-                      How many your ingridients? {{recipe['usedIngredientCount']}} <br>
-                      How many missed ingridients? {{recipe['missedIngredientCount']}}  <br>
-                      How many likes has this recipe? {{recipe['likes']}}  <br>
-                  {% endif %}
+                      Number of Required Ingredients - {{recipe['missedIngredientCount']}}  
+                 {% endif %}
               </div>
           </li> <br>
       {% endfor %}
