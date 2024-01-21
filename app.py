@@ -22,10 +22,18 @@ def search_page():
 
 @app.route('/recipes')
 def get_recipes():
+  time = int(request.args['time']).strip()
+  if (time <10):
+     return render_template('error.html')
   if (str(request.args['ingridients']).strip() != ""):
       # If there is a list of ingridients -> list
-      querystring = {"number":"5","ranking":"1","ignorePantry":"false","ingredients":request.args['ingridients']}
+      querystring = {"number":"20","ranking":"2","ignorePantry":"false","ingredients":request.args['ingridients']}
       response = requests.request("GET", url + find, headers=headers, params=querystring).json()
+      for recipe in response:
+         if( recipe['readyInMinutes']!=""):
+            recipe_time=recipe['readyInMinutes']
+            if (time> recipe_time):
+              response.remove(recipe)
       if len(response) == 0:
          return render_template('error.html')
       return render_template('recipes.html', recipes=response)
