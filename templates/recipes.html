@@ -9,17 +9,31 @@
       </a>
     </div>
 </nav>
+<script>
+  
+  function bigImg(x) {
 
+  x.style.height = "160px";
+  x.style.width = "160px";
+}
+
+function normalImg(x) {
+  x.style.height = "150px"; 
+  x.style.width = "150px";
+}
+
+  
+</script>
 <h2 style="text-align: center; margin-top: 1em;"> <a href="/" style="text-decoration: none; color:rgb(0, 0, 0);"> Recipes for you: </a></h2>
 <div class="container">
     <div class="row">
         {% for recipe in recipes %}
-        <div class="col-6 col-md-4 col-lg-4 mb-3">
+        <div class="col-6 col-md-4 col-lg-4 mb-3" id="div">
             <a href="/recipe?id={{ recipe['id'] }}">
                 <div class="card border-dark">
-                    <img src="{{ recipe['image'] }}" class="card-img-top" alt="Recipe Image" style="height: 150px; width: 150px; margin: auto; margin-top: 10px; object-fit: fill;">
+                    <img src="{{ recipe['image'] }}" class="card-img-top" alt="Recipe Image" style="height: 150px; width: 150px; margin: auto; margin-top: 10px; object-fit: fill;" name="A" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
                     <div class="card-body">
-                        <h5 class="card-title" style="text-align: center;">{{ recipe['title'] }}</h5>
+                        <h5 style="text-align: center;">{{ recipe['title'] }}</h5>
                     </div>
                 </div>
             </a>
