@@ -7,7 +7,10 @@
       <img src="{{recipe['image']}}" class="mr-3" alt="..." width="20%" height="20%">
       <div class="media-body">
         <h5 class="mt-0">{{recipe['title']}}</h5>
-        {{recipe['instructions']}}
+        {% for i in recipe['extendedIngredients'] %}
+            {{ i['name'] }}  <img src="{{ i['image'] }}" class="mr-3" alt="..." width="20%" height="20%">
+            {{  i['amount']  }} {{  i['unit']  }} <br>
+        {% endfor %}      
       </div>
   </div><br>
   {{recipe['inregdientsWidget'] | safe }}<br>
