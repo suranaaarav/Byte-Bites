@@ -11,6 +11,13 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
+  /* .container{
+    max-height: max-content;
+    width:max-content;
+    background-image: url(/static/background_food.png);
+    opacity: 0.5;
+  } */
+
   p.desc{
     color: #6d6d6d;
     font-size: 1.2em;

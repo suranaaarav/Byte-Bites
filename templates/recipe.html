@@ -4,13 +4,41 @@
 
 {% block body %}
 
-<nav class="navbar sticky-top">
+<style>
+  /* Add a style block for custom styles */
+  body {
+      margin: 0; /* Remove default body margin */
+      padding: 0; /* Remove default body padding */
+  }
+
+  #background-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/static/background_food.png');
+      background-size: auto;
+      background-repeat: repeat;
+      opacity: 0.2; /* Adjust the opacity value as needed */
+      z-index: -1; /* Send it to the back */
+  }
+
+  .container-fluid {
+      z-index: 1; /* Bring navbar to the front */
+  }
+</style>
+
+<nav id="navbars" class="navbar sticky-top">
   <div class="container-fluid" style="margin-bottom: 10px;">
-    <a class="navbar-brand" href="#">
-      <img src="static/byte_byte" alt="Logo" width="300" height="240" class="d-inline-block align-text-top">
-    </a>
+      <a class="navbar-brand" href="#">
+          <img src="static/byte_byte.png" alt="Logo0" height="120" class="d-inline-block align-text-top">
+      </a>
   </div>
 </nav>
+
+<div id="background-container"></div> <!-- Container for background image -->
+
 
 
 <div class="row">
