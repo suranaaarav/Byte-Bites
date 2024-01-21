@@ -22,6 +22,9 @@ def search_page():
 
 @app.route('/recipes')
 def get_recipes():
+  time = int(request.args['time']).strip()
+  if (time <10):
+     return render_template('error.html')
   if (str(request.args['ingridients']).strip() != ""):
       # If there is a list of ingridients -> list
       querystring = {"number":"20","ranking":"2","ignorePantry":"false","ingredients":request.args['ingridients']}
