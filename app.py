@@ -17,7 +17,7 @@ randomFind = "recipes/random"
 
 @app.route('/')
 def search_page():
-  joke_response = "Hllo" #str(requests.request("GET", url + random_joke, headers=headers).json()['text'])""
+  joke_response = "LOL" #str(requests.request("GET", url + random_joke, headers=headers).json()['text'])
   return render_template('search.html', joke=joke_response)
 
 @app.route('/recipes')
@@ -40,6 +40,8 @@ def get_recipe():
   recipe_info_endpoint = "recipes/{0}/information".format(recipe_id)
   ingedientsWidget = "recipes/{0}/ingredientWidget".format(recipe_id)
   equipmentWidget = "recipes/{0}/equipmentWidget".format(recipe_id)
+  summary = "recipes/{0}/summary".format(recipe_id)
+
 
   recipe_info = requests.request("GET", url + recipe_info_endpoint, headers=headers).json()
     
@@ -53,6 +55,8 @@ def get_recipe():
   recipe_info['inregdientsWidget'] = requests.request("GET", url + ingedientsWidget, headers=recipe_headers, params=querystring).text
   recipe_info['equipmentWidget'] = requests.request("GET", url + equipmentWidget, headers=recipe_headers, params=querystring).text
     
+  recipe_info['instructionss'] = requests.request("GET", url + summary, headers=recipe_headers, params=querystring).text
+
   return render_template('recipe.html', recipe=recipe_info)
 
 
