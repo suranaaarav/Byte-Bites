@@ -1,9 +1,32 @@
-body {
-    background-color: #ad4848;
-    color: #212529;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    margin: 0;
-    text-align: left;
-}
+body{
+    background-color: #d41e1e;
+  }
+
+  h2 {
+    color: #ffffff;
+  }
+
+  /* .full_form{
+    padding: 10%;
+    width: max-content;
+    height: max-content;
+    border-radius: 5px;
+    background-color: #ffffff;
+  } */
+
+  .form_recipes{
+    transition: transform 0.3s ease; 
+  }
+  .form_recipes:hover{
+    transform: translateY(-5px);
+  }
+  .btn btn-dark{
+    color: #000000;
+    border-radius: 2px;
+    transition: transform 0.3s ease; 
+  }
+  .btn btn-dark:hover{
+    color: #ffffff;
+    border-radius: 2px;
+    transform: translateY(-1px);
+  }
