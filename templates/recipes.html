@@ -2,7 +2,7 @@
 {% block title %} Search Recipes {% endblock %}
 {% block body %}
 
-<nav class="navbar" style="background-color: goldenrod;">
+<nav class="navbar">
     <div class="container-fluid" style="margin-bottom: 10px;">
       <a class="navbar-brand" href="#">
         <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
@@ -13,28 +13,24 @@
 
 <h2 style="text-align: center; margin-top: 1em;"> <a href="/" style="text-decoration: none; color:rgb(0, 0, 0);"> Recipes for you: </a></h2>
 <div class="row">
-        <div>
+        <div style="display: inline;">
             <ul>
                 {% for recipe in recipes %}
-                
-                <div id="cell" class="col-4 col-md-4 border border-dark p-3">
+                <div id="cell" class="col-4 col-md-4 border border-dark p-3" style="margin: 0.5em;">
                     <li class="media">
-                    
-                        <img src="{{recipe['image']}}" alt="..." style="width: 7rem; height: 7rem;">
-                        <br>
                             <h5><a href="/recipe?id={{ recipe['id'] }}">{{ recipe['title'] }}</a></h5>
                             {% if 'likes' not in recipe %}
                             Number of Required Ingredients - {{recipe['missedIngredientCount']}}
                             {% else %}
                             Number of Required Ingredients - {{recipe['missedIngredientCount']}}
                             {% endif %}
-                        </div>
+                            <img src="{{recipe['image']}}" alt="..." style="width: 7rem; height: 7rem;">
                     </li>
                 </div>
                 {% endfor %}
             </ul>
         </div>
-    </div>
 </div>
+
 
 {% endblock %}

@@ -1,5 +1,5 @@
 body{
-    background-color: #fbcb75;
+    background-color: #98d18e;
 }
 
   p {
@@ -62,3 +62,7 @@ body{
     height: 40em;
     width: 40em;
   }
+
+.navbar{
+  background-color: rgb(115, 190, 94);
+}
