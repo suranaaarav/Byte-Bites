@@ -41,12 +41,12 @@
   
   function bigImg(x) {
 
-  x.style.height = "160px";
+  x.style.height = "130px";
   x.style.width = "160px";
 }
 
 function normalImg(x) {
-  x.style.height = "150px"; 
+  x.style.height = "120px"; 
   x.style.width = "150px";
 }
 
@@ -58,12 +58,12 @@ function normalImg(x) {
         {% for recipe in recipes %}
         <div class="col-6 col-md-4 col-lg-4 mb-3" id="div">
             <a href="/recipe?id={{ recipe['id'] }}">
-                <div class="card border-dark">
-                    <img src="{{ recipe['image'] }}" class="card-img-top" alt="Recipe Image" style="height: 150px; width: 150px; margin: auto; margin-top: 10px; object-fit: fill;" name="A" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+                <div class="card border-dark" style="background-color: rgba(255, 255, 255, 0.3);">
+                    <img src="{{ recipe['image'] }}" class="card-img-top" alt="Recipe Image" style="height: 120px; width: 150px; margin: auto; margin-top: 10px; object-fit: fill;" name="A" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
                     <div class="card-body">
                         <h5 style="text-align: center;">{{ recipe['title'] }}</h5>
                     </div>
-                </div>
+                </div>                
             </a>
         </div>
         {% endfor %}

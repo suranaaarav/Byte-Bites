@@ -39,15 +39,13 @@
 
 <div id="background-container"></div> <!-- Container for background image -->
 
-
-
 <div class="row">
-    <div id="image_ingredients" class="col-6 col-md-6">
-        <p style="padding-top: 3%" class="slide">
+    <div id="image_ingredients" class="col-6 col-md-6" style="background-color: rgba(255, 255, 255, 0.3); height: fit-content; width: 50%; padding-top: 50px; padding-bottom: 30px; padding-left: 40px; padding-right: 40px;">
+        <p class="slide">
           <h1>{{ recipe['title'] }}</h1>
         </p>
         <br><br>
-        <p class="desc" >
+        <p class="desc">
           <h3>Ingredients:</h3>
           {% for i in recipe['extendedIngredients'] %}
             {{ i['name'].capitalize() }} -
@@ -57,11 +55,11 @@
         </p>
     </div>
     <div class="col-6 col-md-6">
-        <img src="{{ recipe['image'] }}" alt="{{ recipe['title'] }}" width="90%" height="90%" style="border: 5px solid black; margin-top: 30px;">
+        <img src="{{ recipe['image'] }}" alt="{{ recipe['title'] }}" width="90%" height="70%" style="border: 5px solid black; margin-top: 5rem;">
     </div>
 </div>
 
-<div class="instructions" style="text-align: justify; margin-top: 35px; margin-left: 35px; margin-right: 35px;">
+<div class="instructions" style="text-align: justify; padding: 20px; margin-top: 35px; margin-left: 35px; margin-right: 35px; background-color: rgba(255, 255, 255, 0.3);">
   <b><u>Instructions:</u></b><br>
   {{ recipe['instructions'] }}
 </div>
