@@ -15,12 +15,14 @@
     <div class="row">
         {% for recipe in recipes %}
         <div class="col-6 col-md-4 col-lg-4 mb-3">
-            <div class="card border-dark">
-                <img src="{{ recipe['image'] }}" class="card-img-top" alt="Recipe Image" style="height: 150px; width: 150px; margin: auto;">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="/recipe?id={{ recipe['id'] }}">{{ recipe['title'] }}</a></h5>
+            <a href="/recipe?id={{ recipe['id'] }}">
+                <div class="card border-dark">
+                    <img src="{{ recipe['image'] }}" class="card-img-top" alt="Recipe Image" style="height: 150px; width: 150px; margin: auto; margin-top: 10px; object-fit: fill;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">{{ recipe['title'] }}</h5>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         {% endfor %}
     </div>
